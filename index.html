@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#171717" />
+  <meta name="description" content="Convite interativo Summit Diretora em formato de revista digital." />
+  <title>Summit Diretora — Convite Interativo</title>
+  <link rel="stylesheet" href="styles.css?v=10" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="viewer-head">
+    <a class="back-link brand" href="#" aria-label="Voltar para a capa">
+      <span class="back-icon" aria-hidden="true">←</span>
+      <span class="brand-copy"><strong>Summit Diretoria</strong><small>Convite</small></span>
+    </a>
+
+    <div class="top-actions">
+      <button class="round-action" id="shareButton" aria-label="Compartilhar convite" data-tooltip="Compartilhar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/></svg>
+      </button>
+      <a class="round-action" href="ulteck%20folder.pdf" download aria-label="Baixar PDF" data-tooltip="Baixar PDF">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>
+      </a>
+      <button class="round-action" id="fullscreenButton" aria-label="Tela cheia" data-tooltip="Tela cheia">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="reader" id="reader">
+    <section class="stage" aria-label="Leitor da revista">
+      <button class="nav-button nav-prev" id="prevButton" aria-label="Página anterior">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+
+      <div class="book-wrap" id="bookWrap">
+        <div class="book" id="book" aria-live="polite">
+          <div class="page-slot page-left" id="leftPage"><img alt="" draggable="false"><span class="page-number"></span></div>
+          <div class="page-slot page-right" id="rightPage"><img alt="" draggable="false"><span class="page-number"></span></div>
+          <div class="spine" aria-hidden="true"></div>
+          <div class="turn-overlay" id="turnOverlay" aria-hidden="true"></div>
+        </div>
+        <div class="loading" id="loading"><span class="loader"></span><p>Preparando a revista…</p></div>
+      </div>
+
+      <button class="nav-button nav-next" id="nextButton" aria-label="Próxima página">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </section>
+  </main>
+
+  <footer class="controls" aria-label="Controles da revista">
+    <button class="control-button" id="thumbsButton" aria-label="Ver todas as páginas" data-tooltip="Todas as páginas">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+    </button>
+
+    <div class="page-status" aria-label="Página atual"><span id="currentPage">01</span><i></i><span id="totalPages">8</span></div>
+
+    <div class="progress-track" id="progressTrack" role="slider" aria-label="Progresso da revista" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1" tabindex="0"><span id="progressBar"></span></div>
+
+    <div class="zoom-controls">
+      <button id="zoomOut" aria-label="Diminuir zoom">−</button>
+      <span id="zoomLabel">100%</span>
+      <button id="zoomIn" aria-label="Aumentar zoom">+</button>
+    </div>
+  </footer>
+
+  <aside class="thumbs-panel" id="thumbsPanel" aria-hidden="true" inert>
+    <div class="thumbs-head">
+      <div><small>NAVEGUE PELA</small><h2>Revista</h2></div>
+      <button id="closeThumbs" aria-label="Fechar miniaturas">×</button>
+    </div>
+    <div class="thumbs-grid" id="thumbsGrid"></div>
+  </aside>
+  <div class="panel-backdrop" id="panelBackdrop"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>Ative o JavaScript para visualizar a revista.</noscript>
+  <script src="app.js?v=12" defer></script>
+</body>
+</html>
